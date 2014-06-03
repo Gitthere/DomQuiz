@@ -15,6 +15,8 @@
       "What is the Hawaiian name for Diamond Head?", "What is the traditional dance of Hawaii?",
       "In what year did Hawaii become a state?"];
 
+  var correctAnswer = ["honolulu", "nene", "leahi", "hula", "1959"];
+
   var submitBtn = document.getElementById('submit');
 
   submitBtn.onclick = function() {
@@ -26,14 +28,17 @@
       question.innerHTML = "You have completed the quiz.";
     }
 
-    if (document.getElementById('answer') == "honolulu") {
+    answer.innerHTML = correctAnswer[count];
+    count += 1;
+    
+    if ((document.getElementById('answer')questionaire[count]) == (document.getElementById('correctAnswer')correctAnswer[count]) {
         var newscore = newscore+1;
         alert("Correct!");
       } else {
         newscore = newscore+0; 
-        alert("Sorry, the answer is Honolulu.");
+        alert("Sorry, not even close.");
     }
-  alert("Congratulations, your score is " + score + " out of 5.");
+    alert("Congratulations, your score is " + score + " out of 5.");
   
   }
 

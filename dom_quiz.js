@@ -19,43 +19,43 @@
     "hula",
     "1959"
     ];
-
   
   //Set start text
-  question.innerHTML = questionaire[count];
-
   question.innerHTML = "Would you like to start the quiz?";
-
 
   var submitBtn = document.getElementById('submit');
 
   submitBtn.onclick = function() {
-    //console.log(answer.value);
+    if (answer.value === "no") {
+      alert("See ya.");
+    } else {
+        answer.value = '';
 
-    answer.value = '';
+        //set questions
+        question.innerHTML = questionaire[count];
 
-    //set questions
-    question.innerHTML = questionaire[count];
-    //count += 1;
+        submitBtn.onclick = function() {
+        //check answer and increment score
+          if (answer.value === correctAnswer[count]) {
+            alert("That's correct.");
+            newscore = newscore+1;
+            count++;
+            } else {
+            alert("Sorry, that's wrong.");
+          //increment count variable
+            count++;
+          }
 
-    //check answer and increment score
-    if (answer.value === correctAnswer[count]) {
-      alert("That's correct.");
-      newscore = newscore+1;
-      } else {
-      alert("Sorry, that's wrong.");
-    }
-
-    //increment count variable
-    count++;
-
-    if (count > questionaire.length) {
-      alert("Thank you for taking the quiz.")
-      alert("Congratulations, your score is " + newscore + " out of 5.");  
-    }
-    
-    //score tabulation
-  
+        question.innerHTML = questionaire[count];
+        answer.value = '';
+        
+        if (count >= questionaire.length) {
+          question.innerHTML = "The quiz is complete."
+          alert("Thank you for taking the quiz.")
+          //score tabulation
+          alert("Congratulations, your score is " + newscore + " out of 5.");  
+        }  
+      }    
+    }   
   }
-
 })();

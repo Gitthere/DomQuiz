@@ -36,7 +36,7 @@
 
         submitBtn.onclick = function() {
         //check answer and increment score
-          if (answer.value === correctAnswer[count]) {
+          if (answer.value.toLowerCase() === correctAnswer[count]) {
             alert("That's correct.");
             newscore = newscore+1;
             count++;

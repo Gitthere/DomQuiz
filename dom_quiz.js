@@ -1,44 +1,60 @@
 (function() {
-  var score = 0;
   var newscore = 0;
   var count = 0;
   var question = document.getElementById('question');
   var answer = document.getElementById('answer');
 
-  /*question.innerHTML = "Would you like to start the quiz?";
+  var questionaire = [
+    "What is the capital of Hawaii?",
+    "What is the state bird?",
+    "What is the Hawaiian name for Diamond Head?",
+    "What is the traditional dance of Hawaii?",
+    "In what year did Hawaii become a state?"
+    ];
 
-    if (answer == "no") {
-      alert("Thanks for playing.");
-    }*/
+  var correctAnswer = [
+    "honolulu",
+    "nene",
+    "leahi",
+    "hula",
+    "1959"
+    ];
 
-  var questionaire = ["What is the capital of Hawaii?", "What is the state bird?",
-      "What is the Hawaiian name for Diamond Head?", "What is the traditional dance of Hawaii?",
-      "In what year did Hawaii become a state?"];
+  
+  //Set start text
+  question.innerHTML = questionaire[count];
 
-  var correctAnswer = ["honolulu", "nene", "leahi", "hula", "1959"];
+  question.innerHTML = "Would you like to start the quiz?";
+
 
   var submitBtn = document.getElementById('submit');
 
   submitBtn.onclick = function() {
     //console.log(answer.value);
 
+    answer.value = '';
+
+    //set questions
     question.innerHTML = questionaire[count];
-    count += 1;
-    if (count >= questionaire.length) {
-      question.innerHTML = "You have completed the quiz.";
+    //count += 1;
+
+    //check answer and increment score
+    if (answer.value === correctAnswer[count]) {
+      alert("That's correct.");
+      newscore = newscore+1;
+      } else {
+      alert("Sorry, that's wrong.");
     }
 
-    answer.innerHTML = correctAnswer[count];
-    count += 1;
-    
-    if ((document.getElementById('answer')questionaire[count]) == (document.getElementById('correctAnswer')correctAnswer[count]) {
-        var newscore = newscore+1;
-        alert("Correct!");
-      } else {
-        newscore = newscore+0; 
-        alert("Sorry, not even close.");
+    //increment count variable
+    count++;
+
+    if (count > questionaire.length) {
+      alert("Thank you for taking the quiz.")
+      alert("Congratulations, your score is " + newscore + " out of 5.");  
     }
-    alert("Congratulations, your score is " + score + " out of 5.");
+    
+    //score tabulation
   
   }
 

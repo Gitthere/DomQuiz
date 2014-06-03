@@ -1,49 +1,40 @@
 (function() {
   var score = 0;
+  var newscore = 0;
+  var count = 0;
+  var question = document.getElementById('question');
+  var answer = document.getElementById('answer');
 
-  var quiz_ques = document.getElementById('question');
-  var newanswer = document.getElementById('answer');
+  /*question.innerHTML = "Would you like to start the quiz?";
 
-  quiz_ques.innerHTML = 'Would you like to start the quiz?';
+    if (answer == "no") {
+      alert("Thanks for playing.");
+    }*/
 
-  var questionaire = [
-    {
-      quiz_ques: "What is the capital of Hawaii?",
-      newanswer: "honolulu"
-    },
-    {
-      quiz_ques: "what is the state bird?",
-      newanswer: "nene"
-    },
-    {
-      quiz_ques: "What is the Hawaiian name for Diamond Head?",
-      newanswer: "leahi"
-    },
-    {
-      quiz_ques: "What is the traditional dance of Hawaii?",
-      newanswer:"hula"
-    },
-    {
-      quiz_ques: "In what year did Hawaii become a state?",
-      newanswer: "1959"
-    }
-  ];
+  var questionaire = ["What is the capital of Hawaii?", "What is the state bird?",
+      "What is the Hawaiian name for Diamond Head?", "What is the traditional dance of Hawaii?",
+      "In what year did Hawaii become a state?"];
 
   var submitBtn = document.getElementById('submit');
 
   submitBtn.onclick = function() {
     //console.log(answer.value);
 
-    for (var i = 0; i < questionaire.length; i++) {
-      var newanswer = prompt(questionaire[i].quiz_ques) 
-
-      if (newanswer === questionaire[i].newanswer) {
-        score++;
-      }    
+    question.innerHTML = questionaire[count];
+    count += 1;
+    if (count >= questionaire.length) {
+      question.innerHTML = "You have completed the quiz.";
     }
 
+    if (document.getElementById('answer') == "honolulu") {
+        var newscore = newscore+1;
+        alert("Correct!");
+      } else {
+        newscore = newscore+0; 
+        alert("Sorry, the answer is Honolulu.");
+    }
   alert("Congratulations, your score is " + score + " out of 5.");
   
   }
-  
+
 })();

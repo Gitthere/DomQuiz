@@ -28,7 +28,10 @@
   submitBtn.onclick = function() {
     if (answer.value === "no") {
       alert("See ya.");
-    } else {
+    } else if (answer.value[0].toLowerCase() === "y"){
+
+      
+      }
         answer.value = '';
 
         //set questions
@@ -37,6 +40,7 @@
         submitBtn.onclick = function() {
         //check answer and increment score
           if (answer.value.toLowerCase() === correctAnswer[count]) {
+            //console.log(answer.value, questionaire[count], correctAnswer[count]
             alert("That's correct.");
             newscore = newscore+1;
             count++;
